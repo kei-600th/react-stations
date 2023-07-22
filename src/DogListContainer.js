@@ -1,8 +1,10 @@
 // DO NOT DELETE
 import React, { useState, useEffect } from 'react';
+import { BreedsSelect } from './BreedsSelect'; // 名前付きエクスポートからBreedsSelectをインポート
 
 export const DogListContainer = () => {
-  const [breeds, setBreeds] = useState("")
+  const [breeds, setBreeds] = useState([]);
+  const [selectedBreed, setSelectedBreed] = useState("");
 
   useEffect(() => {
     const fetchBreeds = async () => {
@@ -15,10 +17,15 @@ export const DogListContainer = () => {
     fetchBreeds();
   }, []);
 
+  const handleSelectChange = (e) => {
+    setSelectedBreed(e.target.value);
+  };
 
   return (
     <div>
       <h2>Hello, React!</h2>
+      <BreedsSelect breeds={breeds} onChange={handleSelectChange} selectedBreed={selectedBreed} />
     </div>
   )
 }
+
