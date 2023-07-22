@@ -3,11 +3,13 @@
 import React from 'react';
 import { Header } from './Header';
 import { Description } from './Description';
+import { DogListContainer } from './DogListContainer';
+import './App.css';
 
 export const App = () => (
   <div>
     <Header />
     <Description />
-    <h2>Hello, world!</h2>
+    <DogListContainer />
   </div>
 );
